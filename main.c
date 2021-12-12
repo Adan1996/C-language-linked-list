@@ -48,7 +48,11 @@ void display(struct node *start) {
 
     p = start;
     while(p != NULL) {
-        printf("| %d address: %x |", p->info, p->link);
+        if(p->link == 0) {
+            printf("| %d address: %s |", p->info, "NULL");
+        } else {
+            printf("| %d address: %X |", p->info, p->link);
+        }
         p = p->link;
         if(p == 0) {
             printf("");
